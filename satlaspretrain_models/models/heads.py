@@ -1,3 +1,7 @@
+"""
+Modified 01-04-2025 marlens123 to ignore invalid pixels during the loss computation (currently segmentation only).
+"""
+
 import collections
 import math
 import numpy as np
@@ -145,7 +149,9 @@ class SimpleHead(torch.nn.Module):
 
         if self.task_type == 'segment':
             layers.append(torch.nn.Conv2d(use_channels, self.num_outputs, 3, padding=1))
-            self.loss_func = lambda logits, targets: torch.nn.functional.cross_entropy(logits, targets, reduction='none')
+            # modified here to ignore invalid pixels during the loss computation
+            print("Using ignore_index=-1 for the loss function")
+            self.loss_func = lambda logits, targets: torch.nn.functional.cross_entropy(logits, targets, reduction='none', ignore_index=-1)
 
         elif self.task_type == 'bin_segment':
             layers.append(torch.nn.Conv2d(use_channels, self.num_outputs, 3, padding=1))
