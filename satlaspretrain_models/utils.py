@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Allen Institute for AI
+
 from enum import Enum, auto
 
 class Backbone(Enum):

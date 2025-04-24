@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Allen Institute for AI
+
 from setuptools import setup, find_packages
 
 setup(

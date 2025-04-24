@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Allen Institute for AI
+
 import torch
 import torch.nn
 import requests

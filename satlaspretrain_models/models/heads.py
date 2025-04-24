@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Allen Institute for AI
+
 """
 Modified 01-04-2025 marlens123 to ignore invalid pixels during the loss computation (currently segmentation only).
 """
